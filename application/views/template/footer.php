@@ -1,10 +1,13 @@
 
 <!-- footer -->
-	
-	<p class="footer">
-		<hr>
-		&copy; 2020 AABC Team - All rights reserverd.
-	</p>
+		<p class="footer">
+			<br>
+			<hr>
+			<div class="text-center text-muted">
+				&copy; 2020 AABC Team - All rights reserverd.
+			</div>
+		</p>
+	</div>		
 
 	<!-- jquery -->
 	<script type="text/javascript" src="<?php echo base_url().'asset/js/jquery-3.4.1.slim.min.js'?>"></script>
