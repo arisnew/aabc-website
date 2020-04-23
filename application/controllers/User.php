@@ -95,4 +95,66 @@ class User extends CI_Controller {
 		// cek
 		$this->index();
 	}
+
+	public function login()
+	{
+		$this->load->view('login');
+	}
+
+	public function proses_login()
+	{
+		$code = 0;
+		$msg = '';
+		//ambil data dari form login
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
+		//validasi
+		if ($username == '') {
+			$msg .= 'Username harus diisi!';
+		} else if ($password == '') {
+			$msg .= 'Password harus diisi!';
+		} else {
+			//cek apakah username ada di db
+			$user = $this->usermodel->get_data_by_username($username);
+			if ($user) {
+				//cek password benar
+				if ($user->password == md5($password)) {
+					//password benar
+					if ($user->is_active == 'Active') {
+						//user valid
+						$data_session = array(
+							'user_id' => $user->user_id,
+							'username' => $user->username
+						);
+
+						//buat session
+						$this->session->set_userdata($data_session);
+						$code = 1;
+						$msg .= 'Login berhasil';
+					} else {
+						$msg .= 'User tidak aktif!';
+					}
+				} else {
+					$msg .= 'Password salah!';
+				}
+			} else {
+				$msg .= 'Username tidak valid!';
+			}
+		}
+
+		if ($code == 1) {
+			redirect();
+		} else {
+			$this->session->set_flashdata('error_login', $msg);
+			redirect('user/login');
+		}
+		//buat session & redirect
+	}
+
+	public function logout()
+	{
+		//destroy session
+		$this->session->sess_destroy();
+		redirect('user/login');
+	}
 }

@@ -6,6 +6,10 @@ class Level extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		if (! $this->session->userdata('username')) {
+			redirect('user/login');
+		}
+		
 		$this->load->model('levelmodel');
 	}
 

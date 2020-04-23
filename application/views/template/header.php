@@ -32,6 +32,20 @@
 					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url('user');?>">Data User</a>
 					</li>
+					<?php
+					if ($this->session->userdata('username')) {
+						echo '
+							<li class="nav-item">
+								<a class="nav-link" href="'.base_url('user/logout').'"> Logout</a>
+							</li>
+						';
+					} else {
+						echo '
+							<li class="nav-item">
+								<a class="nav-link" href="'.base_url('user/login').'"> Login</a>
+							</li>
+						';
+					};?>
 				</ul>
 			</div>
 		</nav>

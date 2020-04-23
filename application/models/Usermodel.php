@@ -47,4 +47,10 @@ class Usermodel extends CI_Model {
 		return $this->db->delete($this->table_name);
 	}
 
+	public function get_data_by_username($username)
+	{
+		$this->db->where('username', $username);
+		return $this->db->get($this->table_name)->row();
+	}
+
 }
