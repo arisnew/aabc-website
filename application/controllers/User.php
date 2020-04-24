@@ -106,8 +106,8 @@ class User extends CI_Controller {
 		);
 
 		//update password jika tidak kosong
-		if ($this->input->post('password') != '' ) {
-			$data['password' = md5($this->input->post('password');
+		if ($this->input->post('password') != '') {
+			$data['password'] = md5($this->input->post('password'));
 		}
 		//proses simpan
 		$update = $this->usermodel->update_data($this->input->post('id'), $data);
