@@ -3,6 +3,7 @@
 <table class="table table-sm table-hover">
 	<tr>
 		<th>No</th>
+		<th>Foto</th>
 		<th>Username</th>
 		<th>Level</th>
 		<th>Email</th>
@@ -17,6 +18,9 @@
 			echo '
 				<tr>
 					<td>'.$no.'</td>
+					<td>
+						<img style="height:50px" src="'.base_url('asset/images/'.$row->foto).'">
+					</td>
 					<td>'.$row->username.'</td>
 					<td>'.$row->level_id.'</td>
 					<td>'.$row->email.'</td>

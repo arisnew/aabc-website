@@ -29,7 +29,33 @@ class User extends CI_Controller {
 
 	public function simpan_data()
 	{
+		$msg = '';
+		$code = 0;
 		//validasi
+		//upload foto
+		//config
+		$config['upload_path']          = './asset/images/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		//$config['max_size']             = 100;
+		//$config['max_width']            = 1024;
+		//$config['max_height']           = 768;
+
+		$this->load->library('upload', $config);
+
+		if ( ! $this->upload->do_upload('foto')) {
+		    $msg = $this->upload->display_errors();
+		    $file_name = '';
+		} else {
+			$code = 1;
+			$file_name = $this->upload->data('file_name');
+		}
+
+		if ($code == 0) {
+			$this->session->set_flashdata('error_input_user', $msg);
+			redirect('user/add');
+			exit();
+		}
+
 		//prepare data (mapping data) \
 		$data = array(
 			'username' => $this->input->post('username'),
@@ -37,8 +63,10 @@ class User extends CI_Controller {
 			'level_id' => $this->input->post('level_id'),
 			'password' => md5($this->input->post('password')),
 			'description' => $this->input->post('description'),
-			'is_active' => $this->input->post('status')
+			'is_active' => $this->input->post('status'),
+			'foto' => $file_name
 		);
+
 		//proses simpan
 		$simpan = $this->usermodel->create_data($data);
 		//cek berhasil atau tidak
@@ -72,10 +100,15 @@ class User extends CI_Controller {
 			'username' => $this->input->post('username'),
 			'email' => $this->input->post('email'),
 			'level_id' => $this->input->post('level_id'),
-			'password' => md5($this->input->post('password')),
+			//'password' => md5($this->input->post('password')),
 			'description' => $this->input->post('description'),
 			'is_active' => $this->input->post('status')
 		);
+
+		//update password jika tidak kosong
+		if ($this->input->post('password') != '' ) {
+			$data['password' = md5($this->input->post('password');
+		}
 		//proses simpan
 		$update = $this->usermodel->update_data($this->input->post('id'), $data);
 		//cek berhasil atau tidak
