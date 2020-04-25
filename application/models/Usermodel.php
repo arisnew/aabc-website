@@ -16,7 +16,17 @@ class Usermodel extends CI_Model {
 
 	public function read_data()
 	{
-		return $this->db->get($this->table_name)->result();
+		//tanpa join
+		//return $this->db->get($this->table_name)->result();
+
+		//menggunakan cara join dg table level
+		/*$this->db->select('*');
+		$this->db->from($this->table_name);
+		$this->db->join('level', 'user.level_id = level.level_id');
+		return $this->db->get()->result();*/
+
+		//menggunakan VIEW (view database)
+		return $this->db->get('v_user')->result();
 	}
 
 	public function create_data($data = null)

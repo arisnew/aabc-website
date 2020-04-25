@@ -12,6 +12,9 @@
 	</style>
 	<!-- css bootstrap -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'asset/bootstrap/dist/css/bootstrap.min.css';?>">
+	<!-- css datatables -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'asset/DataTables/css/jquery.dataTables.min.css';?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'asset/DataTables/css/dataTables.bootstrap4.min.css';?>">
 </head>
 <body>
 	<div class="container">

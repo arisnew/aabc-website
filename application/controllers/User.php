@@ -11,10 +11,20 @@ class User extends CI_Controller {
 
 	public function index()
 	{
+		$extra_js = '
+			<script>
+				$(document).ready(function() {
+				    $("#table-user").DataTable({
+				    	"paging":false,
+				    	"ordering": false,
+				    });
+				});
+			</script>
+		';
 		$data_user = $this->usermodel->read_data();
 		$this->load->view('template/header');
 		$this->load->view('user/index', array('users' => $data_user));
-		$this->load->view('template/footer');
+		$this->load->view('template/footer', array('extra_js' => $extra_js));
 	}
 
 	public function add()
