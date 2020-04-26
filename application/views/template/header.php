@@ -33,6 +33,9 @@
 						<a class="nav-link" href="<?php echo base_url('level');?>">Data Level</a>
 					</li>
 					<li class="nav-item">
+						<a class="nav-link" href="<?php echo base_url('ajaxlevel');?>">Data Level <small>Ajax</small></a>
+					</li>
+					<li class="nav-item">
 						<a class="nav-link" href="<?php echo base_url('user');?>">Data User</a>
 					</li>
 					<?php

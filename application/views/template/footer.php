@@ -10,7 +10,7 @@
 	</div>		
 
 	<!-- jquery -->
-	<script type="text/javascript" src="<?php echo base_url().'asset/js/jquery-3.4.1.slim.min.js'?>"></script>
+	<script type="text/javascript" src="<?php echo base_url().'asset/js/jquery-3.5.0.min.js'?>"></script>
 	<!-- popper -->
 	<script type="text/javascript" src="<?php echo base_url().'asset/js/popper.min.js'?>"></script>
 	<!-- bootstrap -->
