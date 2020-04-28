@@ -3,7 +3,15 @@
 	<img src="<?php echo base_url('asset/images/ajax-loader.gif');?>">
 </div>
 
-<a href="#" data-toggle="modal" data-target="#modal-form-add-level" class="btn btn-success pull-right"> Tambah Data</a>
+<div class="row">
+	<div class="col-md-6">
+		<a href="#" data-toggle="modal" data-target="#modal-form-add-level" class="btn btn-success pull-right"> Tambah Data</a>
+	</div>
+	<div class="col-md-6 text-right">
+		<a href="<?php echo base_url('ajaxlevel/report');?>" class="btn btn-info">Download PDF</a>
+	</div>
+</div>
+<div class="clearfix mb-2"></div>
 
 <table id="table-level-ajax" class="table table-sm table-hover">
 	<thead>

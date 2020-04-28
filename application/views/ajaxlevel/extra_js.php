@@ -9,6 +9,10 @@
 	    		{"data": "is_active"},
 	    		{"data": "option"},
 	    	],
+		    dom: 'Bfrtip',
+	        buttons: [
+	            'copy', 'csv', 'excel', 'pdf', 'print'
+	        ],
 	    	"fnDrawCallback": function (oSettings) {
 	    		//tambahkan event di isi datatable
 	    		//ketika tombol edit di klik

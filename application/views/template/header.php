@@ -15,6 +15,8 @@
 	<!-- css datatables -->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'asset/DataTables/css/jquery.dataTables.min.css';?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'asset/DataTables/css/dataTables.bootstrap4.min.css';?>">
+	<!-- button -->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'asset/DataTables/plugin/Buttons-1.6.1/css/buttons.bootstrap4.min.css';?>">
 </head>
 <body>
 	<div class="container">

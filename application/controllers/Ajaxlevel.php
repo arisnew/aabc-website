@@ -150,4 +150,29 @@ class Ajaxlevel extends CI_Controller {
 		//output dlm bentuk json
 		echo json_encode(array('code' => $code));
 	}
+
+	public function report()
+	{
+		//load library pdf
+		$this->load->library('pdfutils');
+		$data['data_level'] = $this->levelmodel->read_data();
+		$report = $this->load->view('ajaxlevel/report_level', $data, TRUE);
+
+		//buat pdf
+		$mpdf = new mPDF();
+		//jika ada css tambahan
+		//$this->stylesheet = file_get_contents('css/style.css');
+	    $mpdf->AddPage('P', // L - landscape, P - portrait
+	            '', '', '', '',
+	            5, // margin_left
+	            5, // margin right
+	            5, // margin top
+	            5, // margin bottom
+	            4, // margin header
+	            4); // margin footer
+		$mpdf->WriteHTML($report);
+		/*save direct download*/
+		$mpdf->Output('report_level_' . date("Y-m-d-His") . '.pdf' , 'I');
+
+	}
 }
