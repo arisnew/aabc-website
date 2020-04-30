@@ -27,9 +27,10 @@
 						<td>'.$row->username.'</td>
 						<td>'.$row->level_name.'</td>
 						<td>'.$row->email.'</td>
-						<td>'.$row->description.'</td>
+						<td style="width:300px; overflow-x: hide;">'.$row->description.'</td>
 						<td>'.$row->is_active.'</td>
 						<td>
+							<a href="'.base_url('user/view/' . $row->user_id).'" class="btn btn-sm btn-info"> View</a>
 							<a href="'.base_url('user/edit/' . $row->user_id).'" class="btn btn-sm btn-warning"> Edit</a>
 							<a onclick="return confirm(\'Yakin hapus data user '.$row->username.' ?!\');" href="'.base_url('user/delete/' . $row->user_id).'" class="btn btn-sm btn-danger"> Delete</a>
 						</td>

@@ -28,6 +28,9 @@
 
 	<script type="text/javascript" src="<?php echo base_url().'asset/DataTables/plugin/Buttons-1.6.1/js/buttons.html5.min.js';?>"></script>
 	<script type="text/javascript" src="<?php echo base_url().'asset/DataTables/plugin/Buttons-1.6.1/js/buttons.print.min.js';?>"></script>
+
+	<!-- CKEditor -->
+	<script type="text/javascript" src="<?php echo base_url().'asset/ckeditor/ckeditor.js';?>"></script>
 	<?php
 	/*dynamic js from controller*/
 	if (isset($extra_js)) {

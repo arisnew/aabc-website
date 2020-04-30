@@ -32,8 +32,10 @@ class User extends CI_Controller {
 		$this->load->model('levelmodel');
 		$level = $this->levelmodel->read_data();
 
+		$extra_js = $this->load->view('user/extra_js', NULL, TRUE);
+
 		$this->load->view('template/header');
-		$this->load->view('user/form_add', array('levels' => $level));
+		$this->load->view('user/form_add', array('levels' => $level, 'extra_js' => $extra_js));
 		$this->load->view('template/footer');
 	}
 
@@ -96,9 +98,11 @@ class User extends CI_Controller {
 		//data level
 		$this->load->model('levelmodel');
 		$levels = $this->levelmodel->read_data();
-		// proses update
+
+		$extra_js = $this->load->view('user/extra_js', NULL, TRUE);
+		
 		$this->load->view('template/header');
-		$this->load->view('user/form_edit', array('user' => $user, 'levels' => $levels));
+		$this->load->view('user/form_edit', array('user' => $user, 'levels' => $levels, 'extra_js' => $extra_js));
 		$this->load->view('template/footer');
 	}
 
@@ -199,5 +203,17 @@ class User extends CI_Controller {
 		//destroy session
 		$this->session->sess_destroy();
 		redirect('user/login');
+	}
+
+	public function view($id = null)
+	{
+		// id yang akan di edit
+		$user_id = (int) $id;
+		// data level berdasarkan id
+		$user = $this->usermodel->get_data($user_id);
+		
+		$this->load->view('template/header');
+		$this->load->view('user/view', array('user' => $user));
+		$this->load->view('template/footer');
 	}
 }

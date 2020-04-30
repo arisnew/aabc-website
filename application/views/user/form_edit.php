@@ -19,7 +19,7 @@ if (! $user) {
 	</div>
 	<div class="form-group">
 		<label for="password">Password :</label>
-		<input type="password" class="form-control" id="password" name="password" value="<?php echo $user->password;?>">
+		<input type="password" class="form-control" id="password" name="password" value="" autocomplete="false">
 	</div>
 	<div class="form-group">
 		<label for="level_id">Level :</label>
@@ -50,6 +50,6 @@ if (! $user) {
 		<input type="radio" name="status" value="Nonactive" <?php echo ($user->is_active == 'Nonactive') ? 'checked=""': '';?>> Nonactive
 	</div>
 	<div>
-		<input type="submit" name="Update" value="Update" class="btn btn-primary">
+		<input type="submit" id="btn-id-update-user" name="Update" value="Update" class="btn btn-primary">
 	</div>
 </form>
