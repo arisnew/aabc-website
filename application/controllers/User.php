@@ -52,14 +52,23 @@ class User extends CI_Controller {
 		//$config['max_width']            = 1024;
 		//$config['max_height']           = 768;
 
+		$file_lainya = null;
 		$this->load->library('upload', $config);
 
 		if ( ! $this->upload->do_upload('foto')) {
 		    $msg = $this->upload->display_errors();
 		    $file_name = '';
 		} else {
-			$code = 1;
+			//$code = 1;
 			$file_name = $this->upload->data('file_name');
+
+			//upload dokumen lainya
+			if ( ! $this->upload->do_upload('file_lainya')) {
+			    $msg = $this->upload->display_errors();
+			} else {
+				$file_lainya = $this->upload->data('file_name');
+				$code = 1;
+			}
 		}
 
 		if ($code == 0) {
@@ -76,7 +85,8 @@ class User extends CI_Controller {
 			'password' => md5($this->input->post('password')),
 			'description' => $this->input->post('description'),
 			'is_active' => $this->input->post('status'),
-			'foto' => $file_name
+			'foto' => $file_name,
+			'file_lainya' => $file_lainya
 		);
 
 		//proses simpan

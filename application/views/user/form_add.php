@@ -50,6 +50,11 @@
 		<label for="foto">Foto :</label>
 		<input type="file" class="form-control" id="foto" name="foto">
 	</div>
+	<!-- ada file lain -->
+	<div class="form-group">
+		<label for="file_lainya">Dokumen Pendukung :</label>
+		<input type="file" class="form-control" id="file_lainya" name="file_lainya">
+	</div>
 	<div>
 		<input type="submit" name="Simpan" value="Simpan" class="btn btn-primary">
 	</div>
